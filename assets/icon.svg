@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Quiet Strength Recovery</title>
+  <desc id="desc">QSR monogram with a rising sun in deep navy and muted gold.</desc>
+  <rect width="512" height="512" rx="112" fill="#102A43"/>
+  <circle cx="256" cy="256" r="206" fill="none" stroke="#C9A05B" stroke-width="10"/>
+  <text x="256" y="244" text-anchor="middle" fill="#FBF7EF" font-size="142" font-family="Georgia, 'Times New Roman', serif" font-weight="700" letter-spacing="2">QSR</text>
+  <path d="M104 300 C180 270 260 270 336 300" fill="none" stroke="#C9A05B" stroke-width="10" stroke-linecap="round"/>
+  <path d="M300 303 A42 42 0 0 1 384 303 Z" fill="#C9A05B"/>
+  <path d="M294 305 H390" fill="none" stroke="#C9A05B" stroke-width="8" stroke-linecap="round"/>
+  <g stroke="#C9A05B" stroke-width="7" stroke-linecap="round">
+    <path d="M342 245 V222"/><path d="M316 251 L306 230"/><path d="M368 251 L378 230"/>
+  </g>
+  <text x="256" y="384" text-anchor="middle" fill="#FBF7EF" font-size="24" font-family="Arial, sans-serif" font-weight="700" letter-spacing="3">RECOVERY</text>
+</svg>

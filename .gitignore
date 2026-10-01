@@ -1,0 +1,24 @@
+# Build output and local tooling
+node_modules/
+dist/
+downloads/
+.netlify/
+.openai/
+*.tar.gz
+
+# Android build output
+android-release/.gradle/
+android-release/build/
+android-release/app/build/
+android-release/local.properties
+*.apk
+*.aab
+*.idsig
+*.jks
+*.keystore
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

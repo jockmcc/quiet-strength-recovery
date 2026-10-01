@@ -1,0 +1,1 @@
+Initial open-source Android release of Quiet Strength Recovery 1.7.

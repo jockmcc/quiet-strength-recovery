@@ -1,0 +1,118 @@
+var(--line);border-radius:18px;background:rgba(255,253,248,.98);box-shadow:0 8px 24px rgba(16,41,66,.08)}
+.pager-progress{text-align:center;color:var(--muted);font-size:.76rem;font-weight:850;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px}
+.pager-buttons{display:grid;grid-template-columns:1fr 1.2fr;gap:10px}
+.pager-btn{display:flex;align-items:center;gap:12px;min-height:64px;padding:11px 14px;border-radius:14px;text-decoration:none;border:1px solid var(--line);background:#fff;color:var(--ink)}
+.pager-btn.next{justify-content:space-between;background:var(--navy);color:#fff;border-color:var(--navy)}
+.pager-btn.previous{justify-content:flex-start}
+.pager-btn small{display:block;font-size:.68rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;opacity:.72;margin-bottom:2px}
+.pager-btn strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:1rem;line-height:1.15}
+.pager-arrow{font-size:1.45rem;font-weight:900;line-height:1;color:var(--gold)}
+.pager-btn.next .pager-arrow{color:var(--gold)}
+.pager-btn:hover{border-color:var(--gold);transform:translateY(-1px)}
+@media(max-width:560px){.workbook-pager{position:sticky;bottom:76px;z-index:35;margin-left:-4px;margin-right:-4px;padding:9px;border-radius:16px}.pager-progress{margin-bottom:7px}.pager-buttons{grid-template-columns:.82fr 1.18fr;gap:7px}.pager-btn{min-height:58px;padding:9px 10px;gap:8px}.pager-btn strong{font-size:.88rem}.pager-arrow{font-size:1.2rem}}
+
+/* v1.2 QA — keyboard focus */
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+  outline:3px solid var(--gold);
+  outline-offset:3px;
+}
+
+
+/* v1.3 — privacy passcode lock */
+.auth-shell{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at top,#eef3f6 0,#fbf7ef 45%,#f5eee2 100%)}
+.auth-card{width:min(460px,100%);background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,6vw,42px);box-shadow:0 22px 60px rgba(16,41,66,.14);text-align:left}
+.auth-card h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,7vw,3rem);line-height:1.05;margin:.12em 0 .35em}
+.auth-card>p{color:var(--muted);line-height:1.65}
+.auth-mark{width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;border:3px solid var(--gold);font-family:Georgia,serif;font-weight:800;font-size:1.35rem;margin-bottom:20px;position:relative;overflow:hidden}.auth-mark img{width:100%;height:100%;display:block;object-fit:cover}
+.auth-mark.locked:after{content:"🔒";position:absolute;transform:translate(28px,25px);font-family:system-ui;font-size:1rem;background:#fff;border:1px solid var(--line);border-radius:50%;width:30px;height:30px;display:grid;place-items:center}
+.auth-primary{width:100%;min-height:50px;margin-top:4px}
+.auth-error{min-height:1.4em;color:#8f2f2f;font-weight:700;font-size:.9rem;line-height:1.45;margin:12px 0 0}
+.auth-note{margin-top:20px;padding:14px;border-radius:14px;background:var(--sand);color:var(--muted);font-size:.82rem;line-height:1.55}
+.link-button{display:block;margin:12px auto 0;border:0;background:transparent;color:var(--navy);font-weight:800;text-decoration:underline;padding:8px}
+.lock-button{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:12px;padding:9px 11px;font-weight:800;white-space:nowrap}
+.lock-button:hover{border-color:var(--gold)}
+@media(max-width:560px){.lock-button span{display:none}.lock-button{padding:8px 10px}.auth-shell{padding:14px}.auth-card{border-radius:22px}}
+
+
+/* v1.4 — client delivery and install experience */
+.client-auth{max-width:680px}
+.first-use-points,.privacy-list{display:grid;gap:10px;margin:18px 0}
+.first-use-points>div,.privacy-list>div{display:grid;gap:4px;padding:14px 15px;border:1px solid var(--line);border-radius:15px;background:rgba(255,255,255,.72)}
+.first-use-points strong,.privacy-list strong{font-size:.92rem}
+.first-use-points span,.privacy-list span{font-size:.86rem;line-height:1.55;color:var(--muted)}
+.auth-divider{height:1px;background:var(--line);margin:22px 0}
+.auth-card h2{font-family:Georgia,"Times New Roman",serif;margin:0 0 8px;font-size:1.55rem}
+.auth-links{margin-top:15px;text-align:center}
+.auth-links a,.client-privacy-link a{color:var(--navy);font-weight:800;text-decoration-thickness:1px;text-underline-offset:3px}
+.install-panel,.client-ready{margin:22px 0;background:linear-gradient(135deg,#eef5f8,#fffdf8);border:1px solid #c9dce6;border-radius:20px;padding:20px;box-shadow:0 7px 22px rgba(16,41,66,.04)}
+.install-panel h3{font-family:Georgia,"Times New Roman",serif;font-size:1.35rem;margin:.15rem 0 .5rem}
+.install-panel p,.client-ready p{color:var(--muted);line-height:1.6;margin:.35rem 0}
+.install-steps{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.install-steps span{background:white;border:1px solid var(--line);border-radius:999px;padding:8px 11px;font-size:.8rem;font-weight:800}
+.client-ready{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start;background:var(--green);border-color:#cfe1cd}
+.client-ready-icon{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:white;font-weight:900}
+.client-privacy-link{margin:4px 0 22px;text-align:center}
+.footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+@media(max-width:560px){
+  .first-use-points>div,.privacy-list>div{padding:12px}
+  .install-panel,.client-ready{padding:16px;border-radius:17px}
+  .client-ready{grid-template-columns:40px 1fr}
+  .client-ready-icon{width:38px;height:38px}
+}
+
+.urgent-support{margin:18px 0;padding:22px;border:2px solid #d9a2a2;background:#fff8f7;color:#291d1d;line-height:1.65}
+.urgent-support .eyebrow{color:#7c2929}
+.urgent-support h2{margin:.15rem 0 .5rem;font-family:Georgia,"Times New Roman",serif;font-size:1.55rem}
+.urgent-support h3{margin:14px 0 4px;font-size:1.05rem}
+.urgent-support p{margin:8px 0}
+.urgent-actions{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.urgent-actions .btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center}
+.btn.emergency-btn{background:#8f2020;color:#fff}
+.btn.urgent-secondary{background:#102942;color:#fff}
+.urgent-divider{height:1px;background:#e4cccc;margin:16px 0}
+.urgent-small{font-size:.88rem;color:#493d3d}
+.urgent-country-field{display:grid;gap:7px;margin:16px 0 10px}
+.urgent-country-field label{font-weight:800}
+.urgent-country-field select{width:100%;min-height:48px;padding:10px 12px;border:2px solid #ad8585;border-radius:10px;background:#fff;color:#291d1d;font:inherit}
+.urgent-country-panel{margin:10px 0;padding:16px;border:1px solid #ead7d7;border-radius:12px;background:#fff}
+.urgent-country-panel h3:first-child{margin-top:0}
+.urgent-country-panel .urgent-actions{margin:10px 0}
+.urgent-country-panel .urgent-links{font-size:.93rem}
+.urgent-screen{width:min(840px,100%);margin:0 auto;padding:clamp(18px,4vw,38px)}
+.urgent-back{display:inline-block;margin:0 0 14px;font-weight:750;text-underline-offset:3px}
+.urgent-screen-card{padding:clamp(20px,5vw,40px);border-radius:22px;background:#fffdf8;box-shadow:var(--shadow)}
+.urgent-screen-card>h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,7vw,3.2rem);margin:.2rem 0 1rem}
+.urgent-screen .urgent-support{margin:0}
+@media(max-width:560px){.urgent-actions{display:grid;grid-template-columns:1fr 1fr}.urgent-actions .btn{width:100%;min-height:52px}.urgent-screen{padding:14px}.urgent-screen-card{padding:18px;border-radius:16px}.urgent-support{padding:17px}}
+
+.recovery-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:18px;margin:18px 0}
+.recovery-summary{display:grid;gap:14px}
+.sober-badge{display:grid;place-items:center;text-align:center;min-height:170px;padding:24px;border:2px solid var(--line);border-radius:24px;background:var(--paper)}
+.sober-badge strong{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2.2rem,8vw,4.4rem);line-height:1}
+.sober-badge span{margin-top:10px;font-weight:700;opacity:.78}
+.sober-badge.unset strong{font-size:clamp(1.6rem,5vw,2.4rem)}
+.small-note{font-size:.9rem;line-height:1.55;opacity:.78}
+.progress-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}
+.progress-stats>div{display:grid;gap:3px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+.progress-stats strong{font-size:1.45rem}
+.progress-stats span{font-size:.85rem;opacity:.75}
+.milestone-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:12px 0 22px}
+.milestone-card{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--card)}
+.milestone-card .btn{grid-column:1/-1;justify-self:start}
+.milestone-card.locked{opacity:.56}
+.milestone-medal{display:grid;place-items:center;width:48px;height:48px;border:2px solid currentColor;border-radius:50%;font-size:1.5rem;font-weight:900}
+.milestone-card strong,.milestone-card span{display:block}
+.milestone-card span{margin-top:3px;font-size:.86rem;opacity:.72}
+.storage-cleanup{margin-top:18px}
+.certificate-actions{max-width:900px;margin:0 auto 16px}
+.certificate-page{max-width:900px;margin:0 auto;padding:clamp(28px,7vw,72px);text-align:center;border:3px double var(--ink);background:var(--paper);box-shadow:var(--shadow)}
+.certificate-mark,.certificate-seal{display:grid;place-items:center;margin:0 auto 18px;width:72px;height:72px;border:2px solid currentColor;border-radius:50%;font-family:Georgia,"Times New Roman",serif;font-size:1.7rem;font-weight:900}
+.certificate-page h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,7vw,3.8rem);margin:.3rem 0 1.5rem}
+.certificate-lead{font-size:1.05rem;opacity:.78}
+.certificate-name{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.8rem,6vw,3.2rem);margin:14px 0}
+.certificate-milestone{font-family:Georgia,"Times New Roman",serif;font-size:clamp(2rem,7vw,4rem);font-weight:800;margin:12px 0}
+.certificate-days{font-size:1.15rem;font-weight:800}
+.certificate-note{max-width:620px;margin:24px auto 0;font-size:.82rem;line-height:1.5;opacity:.7}
+@media(max-width:720px){.recovery-grid{grid-template-columns:1fr}.progress-stats{grid-template-columns:1fr 1fr}.milestone-grid{grid-template-columns:1fr}}
+@media print{.topbar,.bottom-nav,.footer,.certificate-actions{display:none!important}.app-shell main{padding:0!important}.certificate-page{box-shadow:none;max-width:none;min-height:92vh;display:flex;flex-direction:column;justify-content:center}}

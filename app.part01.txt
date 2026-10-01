@@ -1,0 +1,124 @@
+(() => {
+  const KEY = "quietStrengthRecovery.v02";
+  const OLD_KEY = "quietStrengthRecovery.v01";
+  const SECURE_KEY = "quietStrengthRecovery.secure.v1";
+  const AUTH_KEY = "quietStrengthRecovery.auth.v1";
+  const AUTH_SESSION_KEY = "quietStrengthRecovery.auth.session";
+  const todayISO = () => {
+    const d = new Date();
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,'0');
+    const day = String(d.getDate()).padStart(2,'0');
+    return `${y}-${m}-${day}`;
+  };
+
+  const isStandalone = () => window.matchMedia?.('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent || '');
+  function installPanel(){
+    if(isStandalone()) return `<div class="client-ready"><div class="client-ready-icon">✓</div><div><strong>Installed on this device</strong><p>Quiet Strength can be opened from your Home Screen or app list and continues to work offline after the first successful load.</p></div></div>`;
+    if(isIOS()) return `<div class="install-panel"><div><div class="eyebrow">Optional — install on iPhone / iPad</div><h3>Keep Quiet Strength Recovery on your Home Screen</h3><p>You can use it in Safari now. To install it, tap the <strong>Share</strong> button, choose <strong>Add to Home Screen</strong>, then tap <strong>Add</strong>.</p></div><div class="install-steps"><span>1. Share</span><span>2. Add to Home Screen</span><span>3. Add</span></div></div>`;
+    return `<div class="install-panel"><div><div class="eyebrow">Optional — install this workbook</div><h3>Keep Quiet Strength Recovery on this device</h3><p>You can use it in your browser now. If your browser supports direct installation, use the button below. Once loaded successfully, the workbook is also prepared for offline use.</p></div><div class="toolbar"><button class="btn" id="clientInstallBtn" type="button" ${window._qsInstallPrompt?'':'disabled'}>${window._qsInstallPrompt?'Install Quiet Strength Recovery':'Install from browser menu'}</button></div></div>`;
+  }
+
+  const defaults = {
+    checkins:{}, dailyOutputs:{}, dailyUsage:{}, recovery:{startDate:"",displayName:""},
+    brave:{break:"",recognise:"",accountability:"",view:"",execute:""}, urges:{body:"",underneath:"",space:"",connect:"",choose:""},
+    feelings:{primary:"",secondary:"",where:"",support:""}, balance:{recovery:5,sleep:5,work:5,family:5,health:5,connection:5,service:5,enjoyment:5},
+    support:{trusted:"",peers:"",family:"",professional:"",medical:"",groups:"",places:"",activities:""}, warning:{green:"",amber:"",red:""},
+    pages:{}, notes:{}, meta:{recentTools:[], lastOpened:"", savedAt:""}, settings:{localOnly:true,textSize:"normal",highContrast:false}
+  };
+  const clone = x => JSON.parse(JSON.stringify(x));
+  const isRecord=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
+  const isISODate=s=>/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(Date.parse(s+'T12:00:00Z'))&&new Date(s+'T12:00:00Z').toISOString().slice(0,10)===s;
+  const deepMerge = (target, source) => {const out={...target};if(!isRecord(source))return out;for(const [k,v] of Object.entries(source)){if(k==='__proto__'||k==='constructor'||k==='prototype')continue;if(isRecord(v))out[k]=deepMerge(isRecord(target?.[k])?target[k]:{},v);else out[k]=v}return out};
+  const validBackup=x=>isRecord(x)&&['checkins','dailyOutputs','dailyUsage','recovery','brave','urges','feelings','balance','support','warning','pages','notes','meta','settings'].every(k=>x[k]===undefined||isRecord(x[k]))&&Object.entries(x.checkins||{}).every(([date,day])=>isISODate(date)&&isRecord(day))&&Object.entries(x.dailyOutputs||{}).every(([date,out])=>isISODate(date)&&(isRecord(out)||Array.isArray(out)&&out.every(isRecord)))&&Object.entries(x.dailyUsage||{}).every(([date,used])=>isISODate(date)&&Array.isArray(used))&&(!x.meta?.recentTools||Array.isArray(x.meta.recentTools));
+  function migrateOld(){
+    try{
+      const old=JSON.parse(localStorage.getItem(OLD_KEY)||"null"); if(!old) return {};
+      const migrated={...old,checkins:{}};
+      if(old.daily) migrated.checkins[todayISO()] = old.daily;
+      delete migrated.daily;
+      return migrated;
+    }catch{return {}}
+  }
+  function loadLegacy(){try{const v=localStorage.getItem(KEY);const parsed=v?JSON.parse(v):migrateOld();return validBackup(parsed)?parsed:{}}catch{return {}}}
+  let state=deepMerge(clone(defaults),loadLegacy());
+  const DB_NAME="quietStrengthRecoveryDB", DB_STORE="state";
+  function openDB(){return new Promise((resolve,reject)=>{if(!('indexedDB' in window)){resolve(null);return}const r=indexedDB.open(DB_NAME,1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains(DB_STORE))r.result.createObjectStore(DB_STORE)};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+  async function idbSave(payload){try{const db=await openDB();if(!db)return false;await new Promise((resolve,reject)=>{const tx=db.transaction(DB_STORE,'readwrite');tx.objectStore(DB_STORE).put(clone(payload),'main');tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)});db.close();return true}catch{return false}}
+  async function idbLoad(){try{const db=await openDB();if(!db)return null;const data=await new Promise((resolve,reject)=>{const tx=db.transaction(DB_STORE,'readonly');const q=tx.objectStore(DB_STORE).get('main');q.onsuccess=()=>resolve(q.result||null);q.onerror=()=>reject(q.error)});db.close();return data}catch{return null}}
+  async function idbClear(){try{const db=await openDB();if(!db)return true;await new Promise((resolve,reject)=>{const tx=db.transaction(DB_STORE,'readwrite');tx.objectStore(DB_STORE).delete('main');tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)});db.close();return true}catch{return false}}
+  function loadAuth(){try{return JSON.parse(localStorage.getItem(AUTH_KEY)||'null')}catch{return null}}
+  let authMeta=loadAuth();
+  let isUnlocked=false, dataKey=null;
+  let authFailures=0, authBlockedUntil=0, inactivityTimer=null;
+  const bytesToB64=bytes=>btoa(String.fromCharCode(...bytes));
+  const b64ToBytes=b64=>Uint8Array.from(atob(b64),c=>c.charCodeAt(0));
+  async function legacyPinDigest(pin,saltB64,iterations=180000){
+    if(!window.crypto?.subtle) throw new Error('Secure passcode functions are not available in this browser.');
+    const material=await crypto.subtle.importKey('raw',new TextEncoder().encode(pin),'PBKDF2',false,['deriveBits']);
+    const bits=await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:b64ToBytes(saltB64),iterations},material,256);
+    return bytesToB64(new Uint8Array(bits));
+  }
+  async function derivePinSecrets(pin,saltB64,iterations=600000){
+    if(!window.crypto?.subtle) throw new Error('Secure encryption is not available in this browser.');
+    const material=await crypto.subtle.importKey('raw',new TextEncoder().encode(pin),'PBKDF2',false,['deriveBits']);
+    const bits=new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:b64ToBytes(saltB64),iterations},material,512));
+    const verifier=bytesToB64(bits.slice(0,32));
+    const key=await crypto.subtle.importKey('raw',bits.slice(32),{name:'AES-GCM'},false,['encrypt','decrypt']);
+    return {verifier,key};
+  }
+  const constantTimeEqual=(a,b)=>{if(typeof a!=='string'||typeof b!=='string'||a.length!==b.length)return false;let diff=0;for(let i=0;i<a.length;i++)diff|=a.charCodeAt(i)^b.charCodeAt(i);return diff===0};
+  const isEncryptedEnvelope=x=>isRecord(x)&&x.format==='qsr-encrypted-state'&&x.version===1&&typeof x.iv==='string'&&typeof x.ciphertext==='string';
+  async function encryptStatePayload(payload,key=dataKey){
+    if(!key)throw new Error('Workbook encryption key is not available.');
+    const iv=new Uint8Array(12);crypto.getRandomValues(iv);
+    const plain=new TextEncoder().encode(JSON.stringify(payload));
+    const cipher=new Uint8Array(await crypto.subtle.encrypt({name:'AES-GCM',iv},key,plain));
+    return {format:'qsr-encrypted-state',version:1,alg:'AES-GCM',iv:bytesToB64(iv),ciphertext:bytesToB64(cipher),updatedAt:payload?.meta?.savedAt||new Date().toISOString()};
+  }
+  async function decryptStatePayload(envelope,key=dataKey){
+    if(!isEncryptedEnvelope(envelope)||!key)throw new Error('Encrypted workbook data is not available.');
+    const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64ToBytes(envelope.iv)},key,b64ToBytes(envelope.ciphertext));
+    const parsed=JSON.parse(new TextDecoder().decode(plain));
+    if(!validBackup(parsed))throw new Error('Decrypted workbook data failed validation.');
+    return deepMerge(clone(defaults),parsed);
+  }
+  function loadLocalEnvelope(){try{const raw=localStorage.getItem(SECURE_KEY);const parsed=raw?JSON.parse(raw):null;return isEncryptedEnvelope(parsed)?parsed:null}catch{return null}}
+  async function loadBestEncryptedEnvelope(){const local=loadLocalEnvelope();const fromIdb=await idbLoad();const idb=isEncryptedEnvelope(fromIdb)?fromIdb:null;if(!local)return idb;if(!idb)return local;return String(idb.updatedAt||'')>String(local.updatedAt||'')?idb:local}
+  async function loadBestLegacyState(){let best=validBackup(state)?clone(state):{};const idb=await idbLoad();if(validBackup(idb)&&String(idb.meta?.savedAt||'')>String(best.meta?.savedAt||''))best=idb;return deepMerge(clone(defaults),best)}
+  function clearLegacyPlaintextCopies(){try{localStorage.removeItem(KEY);localStorage.removeItem(OLD_KEY)}catch{}}
+  const isEncryptedBackupPackage=x=>isRecord(x)&&x.format==='qsr-encrypted-backup'&&x.version===1&&isRecord(x.kdf)&&typeof x.kdf.salt==='string'&&typeof x.kdf.verifier==='string'&&Number.isFinite(Number(x.kdf.iterations))&&isEncryptedEnvelope(x.payload);
+  async function createEncryptedBackupPackage(){if(!dataKey||!authMeta||authMeta.version<2)throw new Error('Unlock the workbook before exporting a backup.');const payload=await encryptStatePayload(clone(state),dataKey);return {format:'qsr-encrypted-backup',version:1,createdAt:new Date().toISOString(),kdf:{name:'PBKDF2-SHA256',salt:authMeta.salt,iterations:authMeta.iterations,verifier:authMeta.hash},payload}}
+  async function decryptEncryptedBackupPackage(pkg,pin){if(!isEncryptedBackupPackage(pkg))throw new Error('Invalid encrypted backup.');const secrets=await derivePinSecrets(pin,pkg.kdf.salt,Number(pkg.kdf.iterations));if(!constantTimeEqual(secrets.verifier,pkg.kdf.verifier))throw new Error('Incorrect backup passcode.');return decryptStatePayload(pkg.payload,secrets.key)}
+  function requestBackupPasscode(){return new Promise(resolve=>{const overlay=document.createElement('div');overlay.setAttribute('style','position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.72);display:grid;place-items:center;padding:20px');overlay.innerHTML='<div class="auth-card" style="max-width:520px;width:100%"><div class="eyebrow">Encrypted backup</div><h2>Enter the backup passcode</h2><p>Use the passcode that protected Quiet Strength when this backup was created.</p><form id="backupPasscodeForm"><div class="field"><label for="backupPasscodeInput">Passcode</label><input id="backupPasscodeInput" type="password" inputmode="numeric" pattern="[0-9]*" minlength="4" maxlength="8" autocomplete="current-password" required autofocus></div><div class="toolbar"><button class="btn auth-primary" type="submit">Unlock backup</button><button class="btn secondary" id="backupPasscodeCancel" type="button">Cancel</button></div></form></div>';document.body.appendChild(overlay);const done=value=>{overlay.remove();resolve(value)};overlay.querySelector('#backupPasscodeForm').addEventListener('submit',e=>{e.preventDefault();done(overlay.querySelector('#backupPasscodeInput').value)});overlay.querySelector('#backupPasscodeCancel').addEventListener('click',()=>done(null));overlay.querySelector('#backupPasscodeInput').focus()})}
+  function authMinutes(){return Math.max(1,Number(authMeta?.autolockMinutes||5))}
+  function saveAuth(){if(authMeta)localStorage.setItem(AUTH_KEY,JSON.stringify(authMeta));else localStorage.removeItem(AUTH_KEY)}
+  async function createOrChangePasscode(pin,autolockMinutes=authMinutes()){
+    if(!/^\d{4,8}$/.test(pin)) throw new Error('Use a 4 to 8 digit passcode. Six or more digits is strongly recommended.');
+    if(!window.crypto?.subtle)throw new Error('Secure encryption is not available in this browser.');
+    const salt=new Uint8Array(16);crypto.getRandomValues(salt);
+    const iterations=600000,saltB64=bytesToB64(salt),secrets=await derivePinSecrets(pin,saltB64,iterations);
+    const previousAuth=authMeta,previousKey=dataKey;
+    authMeta={version:2,salt:saltB64,hash:secrets.verifier,iterations,autolockMinutes:Number(autolockMinutes)||5,createdAt:previousAuth?.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString()};
+    dataKey=secrets.key;saveAuth();isUnlocked=true;try{sessionStorage.setItem(AUTH_SESSION_KEY,'1')}catch{}authFailures=0;authBlockedUntil=0;
+    const saved=await persist();if(!saved){authMeta=previousAuth;dataKey=previousKey;saveAuth();throw new Error('The encrypted workbook could not be saved on this device.');}
+    armAutoLock();
+  }
+  async function verifyPasscode(pin){
+    if(!authMeta)return false;
+    if(Date.now()<authBlockedUntil) throw new Error('Too many attempts. Wait 30 seconds and try again.');
+    let ok=false;
+    if(Number(authMeta.version||1)>=2){
+      const secrets=await derivePinSecrets(pin,authMeta.salt,Number(authMeta.iterations)||600000);ok=constantTimeEqual(secrets.verifier,authMeta.hash);
+      if(ok){dataKey=secrets.key;const envelope=await loadBestEncryptedEnvelope();if(envelope)state=await decryptStatePayload(envelope,dataKey);else{state=await loadBestLegacyState();isUnlocked=true;await persist()}}
+    }else{
+      const digest=await legacyPinDigest(pin,authMeta.salt,Number(authMeta.iterations)||180000);ok=constantTimeEqual(digest,authMeta.hash);
+      if(ok){state=await loadBestLegacyState();isUnlocked=true;await createOrChangePasscode(pin,authMinutes());return true}
+    }
+    if(ok){isUnlocked=true;try{sessionStorage.setItem(AUTH_SESSION_KEY,'1')}catch{}authFailures=0;authBlockedUntil=0;armAutoLock();return true}
+    dataKey=null;authFailures++;
+    if(authFailures>=5){authFailures=0;authBlockedUntil=Date.now()+30000;throw new Error('Too many incorrect attempts. Quiet Strength Recovery is locked for 30 seconds.');}
+    throw new Error(`Incorrect passcode. ${5-authFailures} attempt${5-authFailures===1?'':'s'} before a short lockout.`);
+  }
+  function armAutoLock(){if(!isUnlocked||!authMeta)return;clearTimeout(in

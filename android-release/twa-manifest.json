@@ -1,0 +1,66 @@
+{
+  "packageId": "app.quietstrength.recovery",
+  "host": "quiet-strength-recovery.netlify.app",
+  "name": "Quiet Strength Recovery",
+  "launcherName": "QSR Recovery",
+  "display": "standalone",
+  "themeColor": "#102A43",
+  "themeColorDark": "#000000",
+  "navigationColor": "#000000",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#FBF7EF",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "https://quiet-strength-recovery.netlify.app/assets/icon-512.png",
+  "maskableIconUrl": "https://quiet-strength-recovery.netlify.app/assets/icon-maskable-512.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "C:\\Users\\Chris Nugent\\Documents\\QSR_Release_Private\\qsr-upload-key.jks",
+    "alias": "qsr-upload"
+  },
+  "appVersionName": "1.7",
+  "appVersionCode": 2,
+  "shortcuts": [
+    {
+      "name": "Daily Check-In",
+      "shortName": "Daily",
+      "url": "https://quiet-strength-recovery.netlify.app/#daily",
+      "chosenIconUrl": "https://quiet-strength-recovery.netlify.app/assets/icon.svg"
+    },
+    {
+      "name": "Daily Archive",
+      "shortName": "Archive",
+      "url": "https://quiet-strength-recovery.netlify.app/#history",
+      "chosenIconUrl": "https://quiet-strength-recovery.netlify.app/assets/icon.svg"
+    },
+    {
+      "name": "Support Now",
+      "shortName": "Support",
+      "url": "https://quiet-strength-recovery.netlify.app/#urgent",
+      "chosenIconUrl": "https://quiet-strength-recovery.netlify.app/assets/icon.svg"
+    }
+  ],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://quiet-strength-recovery.netlify.app/manifest.webmanifest",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "isMetaQuest": false,
+  "fullScopeUrl": "https://quiet-strength-recovery.netlify.app/",
+  "minSdkVersion": 21,
+  "orientation": "default",
+  "fingerprints": [],
+  "additionalTrustedOrigins": [],
+  "retainedBundles": [],
+  "protocolHandlers": [],
+  "fileHandlers": [],
+  "launchHandlerClientMode": "",
+  "displayOverride": [],
+  "appVersion": "1.7"
+}

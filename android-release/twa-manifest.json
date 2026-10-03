@@ -11,7 +11,7 @@
   "navigationDividerColor": "#000000",
   "navigationDividerColorDark": "#000000",
   "backgroundColor": "#FBF7EF",
-  "enableNotifications": true,
+  "enableNotifications": false,
   "startUrl": "/",
   "iconUrl": "https://quiet-strength-recovery.netlify.app/assets/icon-512.png",
   "maskableIconUrl": "https://quiet-strength-recovery.netlify.app/assets/icon-maskable-512.png",
@@ -20,8 +20,8 @@
     "path": "C:\\Users\\Chris Nugent\\Documents\\QSR_Release_Private\\qsr-upload-key.jks",
     "alias": "qsr-upload"
   },
-  "appVersionName": "1.7",
-  "appVersionCode": 2,
+  "appVersionName": "1.8",
+  "appVersionCode": 3,
   "shortcuts": [
     {
       "name": "Daily Check-In",

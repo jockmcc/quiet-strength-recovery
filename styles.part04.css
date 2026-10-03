@@ -116,3 +116,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .certificate-note{max-width:620px;margin:24px auto 0;font-size:.82rem;line-height:1.5;opacity:.7}
 @media(max-width:720px){.recovery-grid{grid-template-columns:1fr}.progress-stats{grid-template-columns:1fr 1fr}.milestone-grid{grid-template-columns:1fr}}
 @media print{.topbar,.bottom-nav,.footer,.certificate-actions{display:none!important}.app-shell main{padding:0!important}.certificate-page{box-shadow:none;max-width:none;min-height:92vh;display:flex;flex-direction:column;justify-content:center}}
+
+/* Hide private pages while the browser reports backgrounding. */
+.privacy-cover{position:fixed;inset:0;z-index:99999;background:#102a43;display:grid;place-items:center;color:#fff}.privacy-cover-mark{display:grid;justify-items:center;gap:18px;font-weight:700}.privacy-cover-mark img{width:72px;height:72px}.privacy-obscured .app-shell{visibility:hidden}.save-warning{white-space:normal!important;max-width:190px;background:#fff0ef!important;color:#8b2020!important;border:1px solid #ae4949!important;font-weight:700}.auth-details{margin-top:22px}.auth-details summary{cursor:pointer;font-weight:700;padding:12px 0}.auth-details p{line-height:1.6}

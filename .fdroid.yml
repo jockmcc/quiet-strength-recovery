@@ -8,12 +8,12 @@ RepoType: git
 Repo: https://github.com/jockmcc/quiet-strength-recovery.git
 
 Builds:
-  - versionName: '1.7'
-    versionCode: 2
-    commit: HEAD
+  - versionName: '1.8'
+    versionCode: 3
+    commit: v1.8
     subdir: android-release
     gradle:
       - yes
 
-CurrentVersion: '1.7'
-CurrentVersionCode: 2
+CurrentVersion: '1.8'
+CurrentVersionCode: 3

@@ -21,9 +21,6 @@
      the abbreviated format. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="app.quietstrength.recovery">
-
-    
-        <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     
 
     

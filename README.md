@@ -1,6 +1,6 @@
 # Quiet Strength Recovery
 
-Quiet Strength Recovery (QSR) is a free, optional, self-guided recovery guide built from lived experience. It offers practical reflection tools, daily check-ins, recovery milestones, urge/craving tools, support links, and local encrypted storage.
+Quiet Strength Recovery (QSR) is a free, optional, self-guided recovery guide built from lived experience. For adults aged 18+, it offers practical reflection tools, daily check-ins, recovery milestones, urge/craving tools, support links, and local encrypted storage.
 
 ## Why this project is open source
 QSR is being released openly so people can use it, study it, improve it and adapt it to help others. The project code is licensed under **GNU GPL v3.0**. Modified versions that are redistributed must remain open under the same licence terms.
@@ -54,3 +54,11 @@ Useful fixes, accessibility improvements, translations, privacy improvements, cl
 
 ## Licence
 Unless a file states otherwise, QSR source code and project-owned assets in this repository are licensed under GPL-3.0-only. Some Android wrapper/build files retain Apache-2.0 notices from the upstream Bubblewrap/Android Browser Helper project; see `THIRD_PARTY_NOTICES.md`.
+
+## Reliability and privacy release — v1.8
+
+Large local journals and encrypted backups use bounded byte encoding. New and changed passcodes require six to eight digits; existing four-digit users remain supported. A shorter welcome keeps urgent help accessible. Background locking, visible save warnings and consistent adult-only privacy wording are included. The unused Android notification permission was removed.
+
+Acceptance checks covered 150,000-character and 1,048,576-character fictional journals, reload, encrypted export/restore, offline reopening and existing-user compatibility. Live checks included background locking and the backup-picker cancellation path. Actual-device and independent content review remain outstanding.
+
+On Chris's Windows release machine, `BUILD_ANDROID_RELEASE.ps1` builds and signs APK/AAB files using the existing protected signing setup. Generic unsigned wrapper builds still use the Gradle instructions above.

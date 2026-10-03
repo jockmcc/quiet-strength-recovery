@@ -22,3 +22,7 @@ android-release/local.properties
 Thumbs.db
 .vscode/
 .idea/
+
+# Protected signing material and generated verification
+*.dpapi
+release/

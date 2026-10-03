@@ -1,6 +1,6 @@
 const CACHE_PREFIX = 'quiet-strength-recovery-qsr-';
-const CACHE = CACHE_PREFIX + 'v23-disclaimer';
-const CORE = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './assets/icon.svg', './assets/icon-192.png', './assets/icon-512.png', './assets/icon-maskable-512.png'];
+const CACHE = CACHE_PREFIX + 'v24-reliability-privacy';
+const CORE = ['./', './index.html', './styles.css', './app.js', './privacy-policy.html', './manifest.webmanifest', './assets/icon.svg', './assets/icon-192.png', './assets/icon-512.png', './assets/icon-maskable-512.png'];
 
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(CORE)));

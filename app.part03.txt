@@ -1,5 +1,5 @@
 Status,1200)}
-  function updateStatus(){const e=document.querySelector('#saveStatus');if(!e)return;if(saveFailed){e.textContent='Your changes could not be saved on this device. Please keep this page open and try exporting a backup.';return}e.innerHTML=`<span class="status-dot"></span>${navigator.onLine?'Device only • online':'Device only • offline'}`}
+  function updateStatus(){const e=document.querySelector('#saveStatus');if(!e)return;e.classList.toggle('save-warning',saveFailed);e.setAttribute('role',saveFailed?'alert':'status');if(saveFailed){e.textContent='Not saved. Keep this page open and export a backup from Settings.';return}e.innerHTML=`<span class="status-dot"></span>${navigator.onLine?'Device only • online':'Device only • offline'}`}
   function formatDay(date){try{return new Intl.DateTimeFormat('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date(date+'T12:00:00'))}catch{return date}}
   function formatWhen(iso){try{return new Intl.DateTimeFormat('en-GB',{dateStyle:'medium',timeStyle:'short'}).format(new Date(iso))}catch{return iso||''}}
   function latestOutput(date){const x=state.dailyOutputs?.[date];if(!x)return null;return Array.isArray(x)?x[x.length-1]:x}

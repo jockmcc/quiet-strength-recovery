@@ -68,4 +68,4 @@ On Chris's Windows release machine, `BUILD_ANDROID_RELEASE.ps1` builds and signs
 
 The current signed build is v1.9 (version code 4). It includes the approved app icon at all Android launcher sizes, current download/version labels, an updated Substack link and refreshed offline assets. The live web app and v1.9 APK were verified against the built files. See `RELEASE_NOTES_v1.9.md` for package checks and limitations.
 
-The Google Play closed-testing release is saved, awaiting submission after the organisation account requirement is resolved. This is not a Google Play approval or production release.
+The last verified Google Play record contains the v1.9 closed-test package. Developer-account classification remains under Google's app-specific review. The owner has declined the organisation/D-U-N-S route. An educational, nonmedical description does not remove applicable health declarations. The live Console must be checked before submission; neither approval nor a production release is claimed. Current verified submission values and store assets are listed in store-assets/PLAY_SUBMISSION.md.

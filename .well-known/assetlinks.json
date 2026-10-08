@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.quietstrength.recovery",
+      "sha256_cert_fingerprints": [
+        "66:F3:BE:49:23:E1:7B:B3:08:B2:58:56:5C:26:E5:9F:73:2A:AC:E1:BC:49:BF:9B:8A:C0:78:4E:59:4F:8B:BC",
+        "6A:53:99:DE:D9:1D:C2:43:7D:15:6B:D5:C8:D0:D0:C2:E9:ED:17:C5:B8:59:F1:0F:0F:77:A4:27:DA:BD:BA:B4"
+      ]
+    }
+  }
+]

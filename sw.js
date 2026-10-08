@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'quiet-strength-recovery-qsr-';
-const CACHE = CACHE_PREFIX + 'v24-reliability-privacy';
+const CACHE = CACHE_PREFIX + 'v26-approved-icons-release';
 const CORE = ['./', './index.html', './styles.css', './app.js', './privacy-policy.html', './manifest.webmanifest', './assets/icon.svg', './assets/icon-192.png', './assets/icon-512.png', './assets/icon-maskable-512.png'];
 
 self.addEventListener('install', event => {
@@ -9,7 +9,7 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
   event.waitUntil(caches.keys().then(keys => Promise.all(
-    keys.filter(key => key.startsWith(CACHE_PREFIX) && key !== CACHE).map(key => caches.delete(key))
+    keys.filter(key => (key.startsWith(CACHE_PREFIX) || key.startsWith('approved-icons-20261008-' + CACHE_PREFIX)) && key !== CACHE).map(key => caches.delete(key))
   )));
   self.clients.claim();
 });

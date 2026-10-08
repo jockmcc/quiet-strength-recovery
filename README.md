@@ -62,3 +62,10 @@ Large local journals and encrypted backups use bounded byte encoding. New and ch
 Acceptance checks covered 150,000-character and 1,048,576-character fictional journals, reload, encrypted export/restore, offline reopening and existing-user compatibility. Live checks included background locking and the backup-picker cancellation path. Actual-device and independent content review remain outstanding.
 
 On Chris's Windows release machine, `BUILD_ANDROID_RELEASE.ps1` builds and signs APK/AAB files using the existing protected signing setup. Generic unsigned wrapper builds still use the Gradle instructions above.
+
+
+## Current Android package — v1.9
+
+The current signed build is v1.9 (version code 4). It includes the approved app icon at all Android launcher sizes, current download/version labels, an updated Substack link and refreshed offline assets. The live web app and v1.9 APK were verified against the built files. See `RELEASE_NOTES_v1.9.md` for package checks and limitations.
+
+The Google Play closed-testing release is saved, awaiting submission after the organisation account requirement is resolved. This is not a Google Play approval or production release.

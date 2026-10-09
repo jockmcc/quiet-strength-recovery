@@ -1,6 +1,6 @@
 # Quiet Strength Recovery — Google Play submission record
 
-Prepared 8 October 2026. This is the verified submission material, not proof that the live Console has been updated or that Google has approved the app.
+Prepared 8 October 2026; live Console checked and corrected 9 October 2026. The changes below are saved, ready for review. Google has not approved this app; the account-type rejection remains in force.
 
 | Field | Correct value |
 |---|---|
@@ -11,14 +11,15 @@ Prepared 8 October 2026. This is the verified submission material, not proof tha
 | Target Android API | 36 |
 | Minimum Android API | 21 |
 | App type | App |
-| Store category | Health & fitness; keep subject to Google's app-specific review |
+| Store category | Health & fitness, verified in the owning Console |
 | Intended audience | Adults aged 18 and over |
 | Public support email | quietstrengthrecovery@outlook.com |
+| IARC and closed-test feedback email | quietstrengthrecovery@outlook.com |
 | Developer website | https://quietstrengthrecovery.co.uk/ |
 | App privacy policy | https://quiet-strength-recovery.netlify.app/privacy-policy.html |
 | Pricing | Free; no ads or in-app purchases |
-| Closed-test regions in last Console record | United Kingdom and United States |
-| Developer account type | Personal in the last verified Console record; unresolved classification review |
+| Closed-test regions | United Kingdom and United States |
+| Developer account type | Personal; Google has upheld the Organisation-account requirement |
 
 Short description: A self-guided recovery guide based on lived experience and practical tools.
 
@@ -30,21 +31,23 @@ The canonical full description is full_description.txt in this directory. It inc
 - Medical device: do not declare the app as a regulated medical device for these nonclinical tools. No diagnostic, treatment recommendation, clinical decision support or medical-device integration was found in the audited implementation.
 - App access: provide the local PIN setup instructions below. A local passcode is not a remote QSR account. Google expressly requires instructions when a reviewer must create a PIN.
 - Ads: no. Advertising ID: no. Financial products/services: none found; no lending, payment, investment or trading service. Government affiliation: none. News publishing: no. Public user chat/content sharing: none. Generative AI at runtime: none found; fixed artwork still requires the applicable per-asset AI provenance declaration.
-- Intended audience: 18+. Complete the IARC questionnaire truthfully for textual addiction/recovery and family-support themes, including any actual abuse, violence or sexual references. Do not set an invented rating or assume that an adult audience automatically means IARC 18.
+- Intended audience: 18+, verified in the Console. The current IARC summary was reviewed: North America Teen, Europe PEGI 16, Germany USK 12+, Brazil All ages, and rest of world/Russia/South Korea 16+. The summary records online substance references and an educational product. The questionnaire answers and generated ratings were retained. The current IARC correspondence email is quietstrengthrecovery@outlook.com. Adult targeting and IARC ratings are separate fields.
 - Location: no device-location API or Android location permission in this build. Support is selected by country.
-- Data safety: The existing Console record declares device/other identifiers for hosted technical requests. Retain truthful disclosure until Netlify request/analytics configuration and retention have been checked in the owning account. Do not claim that no data is collected merely because journal entries stay local. IP-related categories depend on their actual use; inferred location is declared only when actually inferred. Hosting as a service provider is distinct from sharing with unrelated third parties.
+- Data safety: Verified saved answers disclose Device or other IDs for hosted technical requests: collected, required, not ephemeral, encrypted in transit, for app functionality and fraud prevention/security/compliance; not declared as shared. Other data categories are unselected. No remote account creation is declared. Authenticated Netlify site metadata returned null analytics_config, analytics and functions values, with HTML forms ignored. These fields do not establish that provider request logs are absent. Exact provider-log retention was not verified; no deletion or ephemeral-processing guarantee was added. Keep the technical-request disclosure; private writing remains local.
 - Account deletion: no remote QSR account is created. Local erasure and backup controls are documented. Do not claim remote logs are deleted by a local erase button or claim an independent security certification.
 - Do not change distribution regions, developer legal identity, account type or package ownership without the corresponding verified facts.
 
-## App access instructions to enter in Play Console
+## App access instructions saved in Play Console
 
-On a clean install, open the app and select Create a passcode. Choose any 6 to 8 digit numeric passcode, enter the same digits in both fields, then tap Create passcode & start. No email address, remote account, payment, invitation code or subscription is required. The reviewer can use every workbook and reflection tool with this local passcode and their own fictional entries. When the app locks, enter the passcode they created. Urgent support and privacy information are accessible before setup. If the reviewer already created a passcode on that test device, reuse it; the publisher has no master passcode and cannot read or recover the reviewer's private writing.
+Entry name: Local PIN — no user account. Username/password fields are blank; the instructions provide full access. Exact saved instructions (487 characters):
+
+Reviewers create their own local PIN. On a clean install, tap Create a passcode. Choose any 6–8 digit numeric PIN, enter it in both fields and tap Create passcode & start. Reuse that PIN when the app locks. All tools can be reviewed with fictional entries. No email, remote account, payment, invitation or subscription is required. Urgent support and privacy are accessible before setup. If already set up, reuse that PIN. There is no publisher master PIN or recovery of private writing.
 
 ## Current store assets
 
 Use app-icon-512.png (512 × 512 RGBA, under 1 MiB), feature-graphic-1024x500.png, and the six current play-*.png interface renders listed in ASSET_README.md. The icons preserve the approved RGB artwork exactly. Historical unprefixed images are not the current submission set.
 
-Screenshots use synthetic local setup and show the current TWA website interface. They do not constitute physical-device testing or verification of Android plugins. Icons and feature graphics contain AI-generated artwork; check the per-asset labels in the live Console.
+Screenshots use synthetic local setup and show the current TWA website interface. They do not constitute physical-device testing or verification of Android plugins. Icons and feature graphics contain AI-generated artwork. Both were individually labelled in the Console. The six interface captures were uploaded as the current screenshot set.
 
 ## Exact signed packages
 
@@ -55,9 +58,11 @@ APK signature, AAB signature and 16 KiB alignment checks passed on 8 October 202
 
 ## Publication gate
 
-The last verified rejection was Play Console Requirements / developer account classification. The manual review asks Google to assess these specific educational, nonclinical features under the Personal account. A support case is not approval. The owner has declined the organisation/D-U-N-S route; do not restart it.
+Google's app-specific reply of 8 October 2026 upheld the verified Organisation-account requirement. Google expressly acknowledged the educational, nonclinical lived-experience purpose and confirmed that the current stress-management and recovery features still require an Organisation account; a narrower declaration cannot bypass this. The Console release remains rejected and unavailable on Google Play. The owner declined the organisation/D-U-N-S route; it has not been initiated.
 
-Before submission: inspect the live policy decision, confirm this exact version-4 AAB is the active closed-test artifact, replace outdated screenshots/graphics, save the matching full and short descriptions, add the PIN access instructions, and reconcile Data safety with all active versions and host settings. Check the actual IARC answers and completed app-content declarations, then submit a policy-compliant closed test. Do not claim production readiness until the Android device checks, policy decision and required closed testing are complete.
+On 9 October, the owning Personal account was inspected and the corrected metadata, current store assets and local-PIN reviewer instructions were saved. The original code-4 AAB downloaded from Google Play matches the signed local release by SHA-256. Older uploaded versions are inactive. These are saved corrections, not approval. No further review submission was made while the upheld account-type restriction remains unresolved.
+
+Publication still requires resolution of that restriction, successful Android device checks and the applicable closed testing before production access. The dashboard currently reports zero opted-in testers. A saved list of eligible email addresses does not start the testing period.
 
 ## Official policies checked
 

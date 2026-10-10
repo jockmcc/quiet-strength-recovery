@@ -1,5 +1,7 @@
 # Quiet Strength Recovery
 
+Download both free apps: https://quietstrengthrecovery.co.uk/downloads/ . Current signed Android build: v1.9.
+
 Quiet Strength Recovery (QSR) is a free, optional, self-guided recovery guide built from lived experience. For adults aged 18+, it offers practical reflection tools, daily check-ins, recovery milestones, urge/craving tools, support links, and local encrypted storage.
 
 ## Why this project is open source
@@ -69,3 +71,6 @@ On Chris's Windows release machine, `BUILD_ANDROID_RELEASE.ps1` builds and signs
 The current signed build is v1.9 (version code 4). It includes the approved app icon at all Android launcher sizes, current download/version labels, an updated Substack link and refreshed offline assets. The live web app and v1.9 APK were verified against the built files. See `RELEASE_NOTES_v1.9.md` for package checks and limitations.
 
 Google Play checked on 9 October 2026: the active code-4 closed-test bundle is v1.9 and its downloaded original AAB matches the signed local release. The corrected educational/nonmedical listing, current icon, feature graphic, six interface screenshots and local-PIN reviewer instructions are saved. Both health declarations remain accurate. Google's 8 October app-specific reply upheld the verified Organisation-account requirement; the app remains rejected and unavailable on Google Play. The owner declined the organisation/D-U-N-S route. No approval, production release or completed closed testing is claimed. See store-assets/PLAY_SUBMISSION.md.
+## Website and direct downloads
+
+The current sharing and download page is https://quietstrengthrecovery.co.uk/downloads/ . The signed Android build is v1.9. Both apps are free for adults aged 18+. Google Play work is paused; website/Android downloads and user feedback are the current focus. See DISTRIBUTION.md for links and the verified APK hash.

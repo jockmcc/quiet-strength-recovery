@@ -20,8 +20,8 @@
     "path": "C:\\Users\\Chris Nugent\\Documents\\QSR_Release_Private\\qsr-upload-key.jks",
     "alias": "qsr-upload"
   },
-  "appVersionName": "1.9",
-  "appVersionCode": 4,
+  "appVersionName": "1.10",
+  "appVersionCode": 5,
   "shortcuts": [
     {
       "name": "Daily Check-In",

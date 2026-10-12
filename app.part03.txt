@@ -12,7 +12,7 @@ Status,1200)}
   const view=()=>hashParts().view;
 
   const names={
-    daily:'Daily Check-In',feelings:'Feelings',urges:'Urges & Cravings',brave:'BRAVE',balance:'Recovery Balance',support:'Support Map',warning:'Warning Signs',
+    reflection:'Daily readings',watch:'Watch & listen',places:'Coffee shop finder',resources:'Support & meetings',browse:'All pages & tools',daily:'Daily Check-In',feelings:'Feelings',urges:'Urges & Cravings',brave:'BRAVE',balance:'Recovery Balance',support:'Support Map',warning:'Warning Signs',
     rhythm:'Daily Recovery Rhythm',moment:'Moment Before the Action',consequences:'Consequences',fear:'Fear',perspective:'Perspective',familyPatterns:'Family Patterns',familyRoles:'Family Survival Roles',childhoodRules:'Childhood Rules',innerCritic:'Inner Critic',boundaries:'Boundaries',resentment:'Resentment',accountability:'Accountability',apologies:'Apologies & Repair',connection:'Connection & Isolation',working:'What Is Working?',rebuilding:'Rebuilding a Life',grounding:'Grounding & Stillness',values:'Values'
   };
   const interactiveIds=Object.keys(names);

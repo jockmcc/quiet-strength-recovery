@@ -1,4 +1,5 @@
 (() => {
+  window.QSRExplore.configure({family:false});
   const KEY = "quietStrengthRecovery.v02";
   const OLD_KEY = "quietStrengthRecovery.v01";
   const SECURE_KEY = "quietStrengthRecovery.secure.v1";

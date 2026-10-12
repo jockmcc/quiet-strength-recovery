@@ -22,7 +22,27 @@ er('click',e=>{e.preventDefault();const p=e.currentTarget.dataset.chipPath,k=e.c
     const ps=document.querySelector('#persistStorageBtn');if(ps)ps.addEventListener('click',async()=>{const note=document.querySelector('#storageNote');if(navigator.storage?.persist){const ok=await navigator.storage.persist();note.innerHTML=ok?'<strong>Local storage protected:</strong> this browser agreed to treat Quiet Strength data as persistent.':'<strong>Storage request completed:</strong> this browser did not grant persistent storage, so keep regular backups.'}else note.innerHTML='<strong>Storage protection:</strong> this browser does not expose that option. Keep regular backups.'});
   }
 
-  const views={home,workbook,booklet,welcome,person,philosophy,closing,daily,history,day:dayOutput,brave,urges,feelings,moment,consequences,rhythm,fear,perspective,familyPatterns,familyRoles,childhoodRules,innerCritic,boundaries,resentment,accountability,apologies,connection,working,rebuilding,grounding,values,balance,support,warning,tools,help,recovery,certificate,settings,privacy};
+  function exploreCatalog(){return [
+    ['#reflection','Daily readings','365 original reflections, AA and ACA / ACOA reading links.'],
+    ['#watch','Watch & listen','20 direct recovery video and meditation links.'],
+    ['#places','Coffee shop finder','Cafés, libraries and other public places in Maps.'],
+    ['#help','Support now','Urgent support and tools for a difficult moment.'],
+    ['#workbook','My workbook','All workbook pages, in a clear order.'],
+    ['#grounding','Grounding & stillness','Return attention to the present.'],
+    ...catalog.filter(([,id])=>!['welcome','closing','grounding'].includes(id)).map(([,id,title,copy])=>['#'+id,title,copy]),
+    ['#recovery','Recovery progress','Your date, milestones and recognition.'],
+    ['#history','My saved days','Look back at your own daily records.'],
+    ['#resources','Support & meetings','Public resources and recovery directories.'],
+    ['#settings','Settings & backups','Passcode, encrypted backups and accessibility.'],
+    ['#privacy','Privacy','How the app protects your private writing.']
+  ]}
+  function reflection(){return shell(window.QSRExplore.reading(hashParts().param||todayISO()))}
+  function watch(){return shell(window.QSRExplore.watch())}
+  function places(){return shell(window.QSRExplore.places())}
+  function resources(){return shell(window.QSRExplore.resources())}
+  function browse(){return shell(window.QSRExplore.heading('All tools','Find your next useful thing.','Search a topic, or browse the workbook and practical tools.')+window.QSRExplore.toolIndex(exploreCatalog()))}
+
+  const views={reflection,watch,places,resources,browse,home,workbook,booklet,welcome,person,philosophy,closing,daily,history,day:dayOutput,brave,urges,feelings,moment,consequences,rhythm,fear,perspective,familyPatterns,familyRoles,childhoodRules,innerCritic,boundaries,resentment,accountability,apologies,connection,working,rebuilding,grounding,values,balance,support,warning,tools,help,recovery,certificate,settings,privacy};
   function render(){const root=document.querySelector('#app');if(!root)return;try{applyAccessibility();const r=view();if(r==='urgent'){root.innerHTML=urgentScreen();return}if(!authMeta){root.innerHTML=r==='privacy'?preAuthPrivacyScreen():passcodeSetupScreen();bindAuth();return}if(!isUnlocked){root.innerHTML=lockScreen();bindAuth();return}trackRecent(r);root.innerHTML=(views[r]||home)();bind();window.scrollTo({top:0,behavior:'instant'})}catch{root.innerHTML='<main class="urgent-screen"><div class="urgent-screen-card"><h1>This page could not be opened</h1><p>Your entries have not been erased. Please try the home page. If you need help right now, open the support page.</p><p><a class="btn" href="#home">Go to home</a> <a class="btn emergency-btn" href="#urgent">Support now</a></p></div></main>'}}
   function showPrivacyCover(){
     if(document.getElementById('privacyCover'))return;
@@ -37,6 +57,7 @@ er('click',e=>{e.preventDefault();const p=e.currentTarget.dataset.chipPath,k=e.c
   window.addEventListener('focus',()=>{if(document.visibilityState==='visible'){hidePrivacyCover();if(filePickerActive)setTimeout(()=>{if(filePickerActive){filePickerActive=false;armAutoLock()}},1200);if(authMeta&&!isUnlocked)render()}});
   window.addEventListener('pagehide',flushPendingSave);
   document.addEventListener('visibilitychange',async()=>{if(document.visibilityState==='hidden'){showPrivacyCover();try{await flushPendingSave()}catch{}if(authMeta&&isUnlocked&&!filePickerActive){dataKey=null;isUnlocked=false;try{sessionStorage.removeItem(AUTH_SESSION_KEY)}catch{}clearTimeout(inactivityTimer)}}else{hidePrivacyCover();if(authMeta&&!isUnlocked)render()}});
+  window.addEventListener('qsr-explore-ready',()=>{if(isUnlocked&&['home','reflection','watch'].includes(view()))render()});
   window.addEventListener('hashchange',render);window.addEventListener('online',updateStatus);window.addEventListener('offline',updateStatus);window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();window._qsInstallPrompt=e;const b=document.querySelector('#installBtn');if(b)b.style.display='inline-block'});render();if(!authMeta)idbLoad().then(saved=>{if(validBackup(saved)&&String(saved.meta?.savedAt||'')>String(state.meta?.savedAt||'')){state=deepMerge(clone(defaults),saved);render()}});
   if('serviceWorker' in navigator && location.protocol.startsWith('http')) window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 })();

@@ -17,6 +17,7 @@
 
   function trackRecent(r){if(!interactiveIds.includes(r))return;const arr=state.meta.recentTools||[];state.meta.recentTools=[r,...arr.filter(x=>x!==r)].slice(0,8);state.meta.lastOpened=r;const date=todayISO();state.dailyUsage[date]??=[];if(!state.dailyUsage[date].includes(r))state.dailyUsage[date].push(r);persist()}
   function bind(){
+    window.QSRExplore.bind(document.querySelector("#app"));
     updateStatus();
     armAutoLock();
     const lockTop=document.querySelector('#lockNowBtn');if(lockTop)lockTop.addEventListener('click',()=>lockApp(false));

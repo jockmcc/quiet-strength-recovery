@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1250" viewBox="0 0 1600 1250" role="img" aria-labelledby="title description">
+  <title id="title">QSRecovery logo</title>
+  <desc id="description">Deep navy QSR monogram with a muted gold rising sun and the words Quiet Strength Recovery, free tools and honest writing.</desc>
+  <defs>
+    <style>
+      .navy { fill: #102A43; }
+      .gold-fill { fill: #C9A05B; }
+      .gold-stroke { fill: none; stroke: #C9A05B; stroke-linecap: round; stroke-linejoin: round; }
+      .brand-serif { font-family: "Nimbus Roman", "Times New Roman", Georgia, serif; }
+      .brand-sans { font-family: "Nimbus Sans", Arial, sans-serif; }
+    </style>
+  </defs>
+  <g id="monogram">
+    <text x="800" y="430" text-anchor="middle" class="navy brand-serif" font-size="390" font-weight="700" letter-spacing="4">QSR</text>
+  </g>
+  <g id="sunrise" aria-label="rising sun symbol">
+    <path class="gold-stroke" stroke-width="12" d="M360 535 C560 458 765 470 950 548"/>
+    <path class="gold-stroke" stroke-width="5" d="M880 564 C1040 548 1172 548 1300 568"/>
+    <path class="gold-fill" d="M1000 555 A88 88 0 0 1 1176 555 Z"/>
+    <path class="gold-stroke" stroke-width="9" d="M984 558 H1192"/>
+    <g class="gold-stroke" stroke-width="12">
+      <path d="M1088 425 V382"/>
+      <path d="M1042 434 L1024 393"/>
+      <path d="M1003 462 L970 431"/>
+      <path d="M979 506 L934 493"/>
+      <path d="M1134 434 L1152 393"/>
+      <path d="M1173 462 L1206 431"/>
+      <path d="M1197 506 L1242 493"/>
+    </g>
+  </g>
+  <g id="name" class="navy brand-serif" text-anchor="middle" font-weight="700">
+    <text x="800" y="790" font-size="128" letter-spacing="4">QUIET STRENGTH</text>
+    <text x="800" y="995" font-size="180" letter-spacing="7">RECOVERY</text>
+  </g>
+  <g id="descriptor" class="brand-sans" text-anchor="middle" font-weight="600">
+    <text x="800" y="1125" fill="#102A43" font-size="44" letter-spacing="8">FREE TOOLS<tspan fill="#C9A05B"> • </tspan>HONEST WRITING</text>
+  </g>
+</svg>

@@ -1,3 +1,4 @@
+<!-- Current feature update: use the official website app; old Netlify copies are pending a credit-limit resolution. -->
 # Quiet Strength Recovery
 
 Download both free apps: https://quietstrengthrecovery.co.uk/downloads/ . Current signed Android build: v1.11
@@ -14,7 +15,7 @@ QSR is a recovery guide, not a medical service. It does not diagnose conditions,
 QSR has no advertising or analytics SDKs and no QSR cloud account. Workbook data is designed to remain on the user's device and is encrypted locally. Deliberate text/PDF exports are readable by design so users can save or print them.
 
 ## Web version
-https://quiet-strength-recovery.netlify.app/
+https://quietstrengthrecovery.co.uk/apps/strength/
 
 ## Android download
 Signed Android releases are published in the GitHub **Releases** section and on the official QSR website.

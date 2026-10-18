@@ -15,10 +15,25 @@
       <div class="toolbar"><a class="btn" href="#settings">Privacy & storage settings</a><a class="btn secondary" href="#home">Back home</a></div>`);
   }
 
-  function trackRecent(r){if(!interactiveIds.includes(r))return;const arr=state.meta.recentTools||[];state.meta.recentTools=[r,...arr.filter(x=>x!==r)].slice(0,8);state.meta.lastOpened=r;const date=todayISO();state.dailyUsage[date]??=[];if(!state.dailyUsage[date].includes(r))state.dailyUsage[date].push(r);persist()}
+
+  function isWorkbookRoute(r){return interactiveIds.includes(r)&&!['reflection','watch','places','resources','browse'].includes(r)}
+  function workbookResume(){
+    const raw=String(state.meta.resumeRoute||('#'+(state.meta.lastOpened||''))),parts=raw.slice(1).split('/'),r=parts[0];
+    if(!raw.startsWith('#')||!isWorkbookRoute(r)||parts.length>2)return null;
+    if(parts.length===2&&(r!=='daily'||!isISODate(parts[1])))return null;
+    return {href:raw,label:names[r]||'My workbook'};
+  }
+  function rememberWorkbookRoute(r){if(isWorkbookRoute(r)){const p=hashParts().param;state.meta.resumeRoute='#'+r+(r==='daily'&&p?'/'+p:'')}}
+  function todayFocus(){const date=todayISO(),resume=workbookResume(),saved=state.meta.savedAt&&!saveFailed;return `<section class="today-focus" aria-label="Your next step"><article class="card"><div class="eyebrow">Start with you</div><h2>How are you really?</h2><p>A feeling, one honest sentence, or a small intention. There is no score.</p><a class="btn" href="#daily/${date}">Open today's check-in</a></article><article class="card"><div class="eyebrow">Your private workbook</div><h2>${resume?'Pick up where you left off.':'Find a useful place to start.'}</h2><p>${resume?'Return to '+esc(resume.label)+'.':'Choose one page. You do not have to work through everything.'}</p><a class="btn secondary" href="${resume?esc(resume.href):'#workbook'}">${resume?'Continue my workbook':'Choose a workbook page'}</a><p class="resume-time">${saved?'Last saved on this device: '+esc(formatWhen(state.meta.savedAt)):saveFailed?'A save needs attention. Open Settings to export a backup.':'Your answers save on this device as you write.'}</p></article></section>`}
+  function workbookSaveBar(r){return isWorkbookRoute(r)?`<section class="workbook-save-bar no-print" aria-label="Save your workbook"><p id="workbookSaveMessage" class="save-state-message" role="status">Your answers save on this device as you write.</p><div class="toolbar"><button class="btn" id="saveWorkbookNowBtn" type="button">Save now</button><a class="btn secondary" href="#home">Back home</a><a class="btn secondary" href="#settings">Backup options</a></div></section>`:''}
+  function updateWorkbookSaveMessage(){const e=document.querySelector('#workbookSaveMessage');if(!e)return;e.setAttribute('role',saveFailed?'alert':'status');e.textContent=saveFailed?'Not saved. Keep this page open and export a backup in Settings.':savePending?'Saving on this device…':state.meta.savedAt?'Saved on this device · '+formatWhen(state.meta.savedAt):'Your answers save on this device as you write.'}
+  function bindWorkbookSave(){updateWorkbookSaveMessage();const btn=document.querySelector('#saveWorkbookNowBtn');btn?.addEventListener('click',async()=>{btn.disabled=true;btn.textContent='Saving…';clearTimeout(saveTimer);saveTimer=null;const ok=await persist();updateWorkbookSaveMessage();btn.disabled=false;btn.textContent=ok?'Saved ✓':'Try saving again';setTimeout(()=>{if(btn.isConnected&&ok)btn.textContent='Save now'},1800)})}
+
+  function trackRecent(r){if(!interactiveIds.includes(r))return;const arr=state.meta.recentTools||[];state.meta.recentTools=[r,...arr.filter(x=>x!==r)].slice(0,8);state.meta.lastOpened=r;rememberWorkbookRoute(r);const date=todayISO();state.dailyUsage[date]??=[];if(!state.dailyUsage[date].includes(r))state.dailyUsage[date].push(r);persist()}
   function bind(){
     window.QSRExplore.bind(document.querySelector("#app"));
     updateStatus();
+    bindWorkbookSave();
     armAutoLock();
     const lockTop=document.querySelector('#lockNowBtn');if(lockTop)lockTop.addEventListener('click',()=>lockApp(false));
     const lockSettings=document.querySelector('#lockSettingsBtn');if(lockSettings)lockSettings.addEventListener('click',()=>lockApp(false));

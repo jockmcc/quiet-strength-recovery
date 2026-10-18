@@ -1,6 +1,6 @@
 # Quiet Strength Recovery
 
-Download both free apps: https://quietstrengthrecovery.co.uk/downloads/ . Current signed Android build: v1.10.
+Download both free apps: https://quietstrengthrecovery.co.uk/downloads/ . Current signed Android build: v1.11
 
 Quiet Strength Recovery (QSR) is a free, optional, self-guided recovery guide built from lived experience. For adults aged 18+, it offers practical reflection tools, daily check-ins, recovery milestones, urge/craving tools, support links, and local encrypted storage.
 

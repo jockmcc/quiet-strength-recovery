@@ -20,8 +20,8 @@
     "path": "C:\\Users\\Chris Nugent\\Documents\\QSR_Release_Private\\qsr-upload-key.jks",
     "alias": "qsr-upload"
   },
-  "appVersionName": "1.10",
-  "appVersionCode": 5,
+  "appVersionName": "1.11",
+  "appVersionCode": 6,
   "shortcuts": [
     {
       "name": "Daily Check-In",
@@ -62,5 +62,5 @@
   "fileHandlers": [],
   "launchHandlerClientMode": "",
   "displayOverride": [],
-  "appVersion": "1.9"
+  "appVersion": "1.11"
 }

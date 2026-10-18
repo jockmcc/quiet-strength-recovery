@@ -55,7 +55,7 @@
     {
       "name": "Support Now",
       "short_name": "Support",
-      "url": "./#urgent",
+      "url": "./#supportNow",
       "icons": [
         {
           "src": "assets/icon.svg",

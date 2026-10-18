@@ -10,3 +10,5 @@ Chris requires every advertised route to open or download the working current ap
 - Preserve navy/gold for Quiet Strength and mauve/dark green for Quiet Sisters; Quiet Sisters includes people of all genders.
 - Never claim a store/listing is updated when access or approval prevented verification. Google Play remains paused unless Chris resumes it.
 - Personal writing stays private on the device; do not add cloud sync or send it to an AI provider without an explicit project decision.
+
+Chris explicitly refuses paid hosting upgrades or additional credits for these free apps. Use the existing official website and free GitHub downloads; report blocked older hosts clearly.

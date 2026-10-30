@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'quiet-strength-recovery-qsr-';
-const CACHE = CACHE_PREFIX + 'v32-white-gold-black-20261026';
+const CACHE = CACHE_PREFIX + 'v33-calm-home-20261030';
 const CORE = ['./support-now.js', './next-step.css', './', './index.html', './explore.js', './explore.css', './styles.css', './app.js', './daily_readings.json', './video_library.json', './privacy-policy.html', './manifest.webmanifest', './assets/icon.svg', './assets/icon-192.png', './assets/icon-512.png', './assets/icon-maskable-512.png'];
 
 self.addEventListener('install', event => {

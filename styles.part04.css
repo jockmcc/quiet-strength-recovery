@@ -144,7 +144,7 @@ html,body{background:var(--cream);color:var(--ink)}
 .topbar,.bottom-nav,.workbook-pager{background:rgba(247,242,230,.98);border-color:rgba(201,160,91,.36)}
 .brand-title,.brand-sub{color:var(--ink)}
 .brand-mark{border-color:var(--gold);background:var(--navy);color:var(--gold-soft)}
-.hero:not(section),.hero{background-image:linear-gradient(90deg,rgba(3,20,15,.94),rgba(3,20,15,.69)),url("assets/brand/highland-hero.jpg");background-size:cover;background-position:center center;color:#FFFDF8;border:1px solid rgba(201,160,91,.6)}
+.hero:not(section),.hero{background-image:linear-gradient(135deg,#124A38 0%,#08241B 55%,#03140F 100%);color:#FFFDF8;border:1px solid rgba(201,160,91,.6)}
 .hero h1,.hero h2,.hero p,.hero .card-title{color:#FFFDF8}
 .hero .eyebrow{color:#E6CF91}
 .hero-btn{background:var(--gold);color:#03140F}

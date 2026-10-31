@@ -1,7 +1,17 @@
 <!-- Current feature update: use the official website app; old Netlify copies are pending a credit-limit resolution. -->
 # Quiet Strength Recovery
 
-Download both free apps: https://quietstrengthrecovery.co.uk/downloads/ . Current signed Android build: v1.11
+Download both free apps: https://quietstrengthrecovery.co.uk/downloads/ . Current signed Android build: v1.10 (v1.11 is in testing)
+
+
+## Current release
+
+| App | Version | Code | Release tag | APK | SHA-256 | Status |
+|---|---|---|---|---|---|---|
+| Quiet Strength Recovery | 1.10 | 5 | mobile-resources-2026-10-12 | Quiet-Strength-Recovery-v1.10.apk | 600c4d8fc06d1e93cf3997ec76741fb416a2e6d3d9bd54e852078d214e9d28da | Public |
+| Quiet Strength Recovery | 1.11 | 6 | not released | Quiet-Strength-Recovery-v1.11.apk | 1cb195c8e3699b559c6d4aacec70f38ada4590937ece39a4e9599458208d4389 | In testing; promoted only after the Android acceptance test |
+
+Check a download on Windows with `Get-FileHash Quiet-Strength-Recovery-v1.10.apk`. The sections further down are release history.
 
 Quiet Strength Recovery (QSR) is a free, optional, self-guided recovery guide built from lived experience. For adults aged 18+, it offers practical reflection tools, daily check-ins, recovery milestones, urge/craving tools, support links, and local encrypted storage.
 
@@ -58,7 +68,7 @@ Useful fixes, accessibility improvements, translations, privacy improvements, cl
 ## Licence
 Unless a file states otherwise, QSR source code and project-owned assets in this repository are licensed under GPL-3.0-only. Some Android wrapper/build files retain Apache-2.0 notices from the upstream Bubblewrap/Android Browser Helper project; see `THIRD_PARTY_NOTICES.md`.
 
-## Reliability and privacy release — v1.8
+## History: reliability and privacy release — v1.8
 
 Large local journals and encrypted backups use bounded byte encoding. New and changed passcodes require six to eight digits; existing four-digit users remain supported. A shorter welcome keeps urgent help accessible. Background locking, visible save warnings and consistent adult-only privacy wording are included. The unused Android notification permission was removed.
 
@@ -67,20 +77,20 @@ Acceptance checks covered 150,000-character and 1,048,576-character fictional jo
 On Chris's Windows release machine, `BUILD_ANDROID_RELEASE.ps1` builds and signs APK/AAB files using the existing protected signing setup. Generic unsigned wrapper builds still use the Gradle instructions above.
 
 
-## Current Android package — v1.9
+## History: Android package — v1.9
 
-The current signed build is v1.9 (version code 4). It includes the approved app icon at all Android launcher sizes, current download/version labels, an updated Substack link and refreshed offline assets. The live web app and v1.9 APK were verified against the built files. See `RELEASE_NOTES_v1.9.md` for package checks and limitations.
+v1.9 (version code 4) was the signed build at the time. It includes the approved app icon at all Android launcher sizes, current download/version labels, an updated Substack link and refreshed offline assets. The live web app and v1.9 APK were verified against the built files. See `RELEASE_NOTES_v1.9.md` for package checks and limitations.
 
 Google Play checked on 9 October 2026: the active code-4 closed-test bundle is v1.9 and its downloaded original AAB matches the signed local release. The corrected educational/nonmedical listing, current icon, feature graphic, six interface screenshots and local-PIN reviewer instructions are saved. Both health declarations remain accurate. Google's 8 October app-specific reply upheld the verified Organisation-account requirement; the app remains rejected and unavailable on Google Play. The owner declined the organisation/D-U-N-S route. No approval, production release or completed closed testing is claimed. See store-assets/PLAY_SUBMISSION.md.
 ## Website and direct downloads
 
-The current sharing and download page is https://quietstrengthrecovery.co.uk/downloads/ . The signed Android build is v1.9. Both apps are free for adults aged 18+. Google Play work is paused; website/Android downloads and user feedback are the current focus. See DISTRIBUTION.md for links and the verified APK hash.
+The current sharing and download page is https://quietstrengthrecovery.co.uk/downloads/ . The signed Android build at that time was v1.9. Both apps are free for adults aged 18+. Google Play work is paused; website/Android downloads and user feedback are the current focus. See DISTRIBUTION.md for links and the verified APK hash.
 
 
 
-## Mobile resources update — v1.10
+## History: mobile resources update — v1.10
 
-The current direct Android release is v1.10 (code 5). Home gives clear access to daily readings, writing, watching and the coffee-shop finder. A searchable tool index makes the workbook pages easier to find on mobile. Existing private storage keys, passcodes, app identity and signing certificate are retained.
+v1.10 (code 5) is the current direct Android release. Home gives clear access to daily readings, writing, watching and the coffee-shop finder. A searchable tool index makes the workbook pages easier to find on mobile. Existing private storage keys, passcodes, app identity and signing certificate are retained.
 Quiet Strength includes 365 original QSR readings with recovery/ACOA themes, official AA and ACA reading links and 20 direct creator-video links.
 
 JavaScript builds, all 365 calendar dates, reader date navigation, new routes, search/filter interactions and Maps query generation passed isolated tests. Browser-layout and physical-phone acceptance are not claimed.

@@ -14,13 +14,21 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
+// The host redirects ./index.html to ./, and a redirected response cannot answer a page load.
+function offlinePage() {
+  return caches.match('./').then(cached => cached || caches.match('./index.html')).then(response => {
+    if (!response || !response.redirected) return response;
+    return response.blob().then(body => new Response(body, { status: 200, headers: response.headers }));
+  });
+}
+
 self.addEventListener('fetch', event => {
   const request = event.request;
   if (request.method !== 'GET') return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin || !url.href.startsWith(self.registration.scope)) return;
   if (request.mode === 'navigate') {
-    event.respondWith(fetch(request).catch(() => caches.match('./index.html')));
+    event.respondWith(fetch(request).catch(offlinePage));
     return;
   }
   event.respondWith(caches.match(request).then(cached => cached || fetch(request).then(response => {

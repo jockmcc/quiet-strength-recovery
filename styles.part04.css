@@ -136,3 +136,30 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .qsr-project-links a:hover{color:#7A5A1E}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline-color:#7A5A1E}
 @media print{.qsr-project-links{display:none}}
+
+
+/* QSR HIGHLAND HERITAGE THEME • 2026-10-28 */
+:root{--qsr-forest:#03140F;--qsr-green:#08241B;--qsr-jade:#124A38;--qsr-gold:#C9A05B;--qsr-cream:#F7F2E6;--navy:#08241B;--navy2:#124A38;--navy-deep:#03140F;--ink:#183027;--muted:#4B6359;--paper:#FFFDF8;--cream:#F7F2E6;--gold:#C9A05B;--gold-ink:#85652E;--gold-soft:#E6CF91;--accentText:#85652E;--line:#DAD0BE;--blue:#EEF3ED;--green:#E6EEE6;--rose:#F7F1E8;--lav:#F3F0E7;--sand:#F7F2E6;--card:#FFFDF8;--moss:#EDF1E7;--accent:#124A38;--accent-hover:#215B45;--shadow:0 12px 32px rgba(3,20,15,.10)}
+html,body{background:var(--cream);color:var(--ink)}
+.topbar,.bottom-nav,.workbook-pager{background:rgba(247,242,230,.98);border-color:rgba(201,160,91,.36)}
+.brand-title,.brand-sub{color:var(--ink)}
+.brand-mark{border-color:var(--gold);background:var(--navy);color:var(--gold-soft)}
+.hero:not(section),.hero{background-image:linear-gradient(90deg,rgba(3,20,15,.94),rgba(3,20,15,.69)),url("assets/brand/highland-hero.jpg");background-size:cover;background-position:center center;color:#FFFDF8;border:1px solid rgba(201,160,91,.6)}
+.hero h1,.hero h2,.hero p,.hero .card-title{color:#FFFDF8}
+.hero .eyebrow{color:#E6CF91}
+.hero-btn{background:var(--gold);color:#03140F}
+.hero-btn.alt{background:rgba(3,20,15,.46);color:#FFFDF8;border-color:#C9A05B}
+.btn:not(.danger):not(.secondary):not(.gold){background:var(--navy);color:#FFFDF8}
+.btn.secondary{background:#FFFDF8;color:var(--navy);border:1px solid var(--line)}
+.btn.gold{background:var(--gold);color:#03140F;border-color:var(--gold)}
+.action-card.primary{background:var(--navy);color:#FFFDF8;border-color:var(--gold)}
+.action-card.primary .card-copy,.primary .card-copy{color:#EFE7D8}
+.auth-shell{background:linear-gradient(145deg,#F7F2E6 55%,#E8EFE8)}
+.auth-card,.guide-app,.app-card,.project,.hero-aside,.community-panel{border-top:3px solid #C9A05B}
+.card,.resource-card,.choice,.place-btn,.milestone-card,.certificate-page{border-color:var(--line)}
+.eyebrow,.section-kicker,.project-number,.qsr-install-eyebrow{color:#85652E}
+.qsr-project-links{background:#F7F2E6;color:#183027;border-color:#DAD0BE}
+.qsr-project-links a{color:#183027;text-decoration-color:#C9A05B}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #A4772E;outline-offset:3px}
+.high-contrast{--navy:#000000;--navy2:#111111;--ink:#000000;--muted:#333333;--line:#777777;--gold:#7A5A1E;--paper:#FFFFFF;--cream:#FFFFFF}
+@media print{.hero{background-image:none!important}}

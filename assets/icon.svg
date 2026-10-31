@@ -1,1 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title"><title id="title">Quiet Strength — QSR</title><rect width="512" height="512" rx="80" fill="#FFFFFF"/><rect x="24" y="24" width="464" height="464" rx="62" fill="none" stroke="#C9A05B" stroke-width="5"/><g transform="translate(16 82) scale(.3)"><text x="800" y="430" text-anchor="middle" fill="#111111" font-family="Liberation Serif,Georgia,serif" font-size="390" font-weight="700" letter-spacing="4">QSR</text><path d="M360 535 C560 458 765 470 950 548 M880 564 C1040 548 1172 548 1300 568" fill="none" stroke="#C9A05B" stroke-width="12" stroke-linecap="round"/><path d="M1000 555 A88 88 0 0 1 1176 555 Z" fill="#C9A05B"/><g fill="none" stroke="#C9A05B" stroke-width="12" stroke-linecap="round"><path d="M1088 425 V382 M1042 434 L1024 393 M1003 462 L970 431 M979 506 L934 493 M1134 434 L1152 393 M1173 462 L1206 431 M1197 506 L1242 493"/></g></g><text x="256" y="344" text-anchor="middle" fill="#111111" font-family="Liberation Sans,Arial,sans-serif" font-size="23" font-weight="700" letter-spacing="3">QUIET STRENGTH</text><text x="256" y="382" text-anchor="middle" fill="#7A5A1E" font-family="Liberation Sans,Arial,sans-serif" font-size="17" letter-spacing="4">RECOVERY</text><path d="M184 415 H328" stroke="#C9A05B" stroke-width="3"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="brandTitle">
+<title id="brandTitle">Quiet Strength Recovery Highland stag identity</title>
+<defs><linearGradient id="forest" x1="0" x2="1" y1="0" y2="1"><stop offset="0%" stop-color="#124A38"/><stop offset="55%" stop-color="#08241B"/><stop offset="100%" stop-color="#03140F"/></linearGradient><linearGradient id="gold" x1="0" x2=".8" y1="1" y2="0"><stop offset="0%" stop-color="#967039"/><stop offset="45%" stop-color="#E6CF91"/><stop offset="100%" stop-color="#C9A05B"/></linearGradient></defs>
+<rect width="512" height="512" rx="88" fill="url(#forest)"/>
+<rect x="20" y="20" width="472" height="472" rx="70" fill="none" stroke="#C9A05B" stroke-width="6"/>
+<path d="M75 177 L129 123 L168 155 L221 91 L279 151 L334 117 L429 184" fill="none" stroke="#C9A05B" stroke-width="4" opacity=".37" stroke-linejoin="round"/>
+<g stroke="#E6CF91" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+<path d="M252 177 Q218 142 208 103 Q184 75 181 51 M209 106 Q176 110 156 86 M219 129 Q185 141 168 128 M232 153 Q202 158 189 153"/>
+<path d="M260 177 Q294 142 304 103 Q328 75 331 51 M303 106 Q336 110 356 86 M293 129 Q327 141 344 128 M280 153 Q310 158 323 153"/>
+</g>
+<path d="M236 172 Q246 161 256 170 Q266 161 276 172 L273 206 Q267 228 256 232 Q245 228 239 206 Z" fill="#C9A05B" stroke="#E6CF91" stroke-width="2"/>
+<path d="M238 183 L224 175 L233 199 M274 183 L288 175 L279 199" fill="#C9A05B"/>
+<path d="M256 208 L256 222" stroke="#08241B" stroke-width="2"/>
+<text x="256" y="354" text-anchor="middle" font-family="Georgia,DejaVu Serif,serif" font-size="136" font-weight="700" fill="url(#gold)">QSR</text>
+<path d="M130 382 H382" stroke="#C9A05B" stroke-width="2"/>
+<text x="256" y="422" text-anchor="middle" font-family="Arial,DejaVu Sans,sans-serif" font-size="26" font-weight="700" letter-spacing="2" fill="#F7F2E6">QUIET STRENGTH</text>
+<text x="256" y="451" text-anchor="middle" font-family="Georgia,serif" font-size="19" letter-spacing="6" fill="#E6CF91">RECOVERY</text>
+</svg>

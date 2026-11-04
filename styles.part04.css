@@ -164,3 +164,4 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .high-contrast{--navy:#000000;--navy2:#111111;--ink:#000000;--muted:#333333;--line:#777777;--gold:#7A5A1E;--paper:#FFFFFF;--cream:#FFFFFF}
 @media print{.hero{background-image:none!important}}
 .urgent-back{padding:10px 0}.auth-card p a{display:inline-block;padding:6px 2px}.client-privacy-link a{display:inline-block;padding:11px 2px}
+.arrow{color:#7A5A1E}.milestone-card.locked{opacity:1;border-style:dashed}.milestone-card.locked .milestone-medal{opacity:.55}.milestone-card span{opacity:1}

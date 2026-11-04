@@ -85,7 +85,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .client-ready{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start;background:var(--green);border-color:#DDD6C8}
 .client-ready-icon{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:white;font-weight:900}
 .client-privacy-link{margin:4px 0 22px;text-align:center}
-.footer a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.footer a{color:inherit;text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:11px 4px}
 .btn:disabled{opacity:.55;cursor:not-allowed}
 @media(max-width:560px){
   .first-use-points>div,.privacy-list>div{padding:12px}
@@ -196,3 +196,4 @@ html,body{background:var(--cream);color:var(--ink)}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #A4772E;outline-offset:3px}
 .high-contrast{--navy:#000000;--navy2:#111111;--ink:#000000;--muted:#333333;--line:#777777;--gold:#7A5A1E;--paper:#FFFFFF;--cream:#FFFFFF}
 @media print{.hero{background-image:none!important}}
+.urgent-back{padding:10px 0}.auth-card p a{display:inline-block;padding:6px 2px}.client-privacy-link a{display:inline-block;padding:11px 2px}

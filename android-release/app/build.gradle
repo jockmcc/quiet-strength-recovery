@@ -53,6 +53,9 @@ def twaManifest = [
 android {
     compileSdkVersion 36
     namespace "app.quietstrength.recovery"
+    buildFeatures {
+        resValues = true
+    }
     defaultConfig {
         applicationId "app.quietstrength.recovery"
         minSdkVersion 21

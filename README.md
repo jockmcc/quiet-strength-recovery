@@ -1,17 +1,18 @@
 <!-- Current feature update: use the official website app; old Netlify copies are pending a credit-limit resolution. -->
 # Quiet Strength Recovery
 
-Download both free apps: https://quietstrengthrecovery.co.uk/downloads/ . Current signed Android build: v1.10 (v1.11 is in testing)
+Download both free apps: https://quietstrengthrecovery.co.uk/downloads/ . Current signed Android build: v1.12
 
 
 ## Current release
 
 | App | Version | Code | Release tag | APK | SHA-256 | Status |
 |---|---|---|---|---|---|---|
-| Quiet Strength Recovery | 1.10 | 5 | mobile-resources-2026-10-12 | Quiet-Strength-Recovery-v1.10.apk | 600c4d8fc06d1e93cf3997ec76741fb416a2e6d3d9bd54e852078d214e9d28da | Public |
-| Quiet Strength Recovery | 1.11 | 6 | not released | Quiet-Strength-Recovery-v1.11.apk | 1cb195c8e3699b559c6d4aacec70f38ada4590937ece39a4e9599458208d4389 | In testing; promoted only after the Android acceptance test |
+| Quiet Strength Recovery | 1.12 | 7 | strength-v1.12-2026-11-12 | Quiet-Strength-Recovery-v1.12.apk | 944561d72df72a10178f1f65f1741a750bcab3513ef0edeca6929ba1ae4b6b6d | Public from 12 Nov 2026. Newer build tools plus the v1.11 changes. Released at Chris's request without a physical-phone test |
+| Quiet Strength Recovery | 1.11 | 6 | not released | Quiet-Strength-Recovery-v1.11.apk | 1cb195c8e3699b559c6d4aacec70f38ada4590937ece39a4e9599458208d4389 | Never released; its changes ship in v1.12 |
+| Quiet Strength Recovery | 1.10 | 5 | mobile-resources-2026-10-12 | Quiet-Strength-Recovery-v1.10.apk | 600c4d8fc06d1e93cf3997ec76741fb416a2e6d3d9bd54e852078d214e9d28da | Previous public release |
 
-Check a download on Windows with `Get-FileHash Quiet-Strength-Recovery-v1.10.apk`. The sections further down are release history.
+Check a download on Windows with `Get-FileHash Quiet-Strength-Recovery-v1.12.apk`. The sections further down are release history.
 
 Quiet Strength Recovery (QSR) is a free, optional, self-guided recovery guide built from lived experience. For adults aged 18+, it offers practical reflection tools, daily check-ins, recovery milestones, urge/craving tools, support links, and local encrypted storage.
 
